@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block TITULO %} Base {% endblock TITULO %} </title>
+</head>
+
+<body>
+    <!-- "logo" se clicar leva pro inicio-->
+    <div>
+                <a href="{% url 'index' %}">Elenco Brooklyn Nets</a>
+
+    </div>
+    <!-- barrinha de pesquisa-->
+    <div>
+                    <ul>
+                        <li> <a href="{% url 'index' %}">Início</a></li>
+                        <li> <a href="{% url 'sobre' %}">Sobre</a></li>
+                        <li> <a href="{% url 'elenco' %}">Eleneco</a></li>
+                    </ul>
+                </div>
+    {% block conteudo%}
+    <!-- main content-->
+        <div class="conteiner">
+            <div class="row"> <h1> aaaadwadsd </h1> </div>
+    {% endblock conteudo%}
+</body>
+
+</html>

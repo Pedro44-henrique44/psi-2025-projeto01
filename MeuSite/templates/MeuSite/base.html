@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,30 +10,57 @@
 </head>
 
 <body>
-    <!-- "logo" se clicar leva pro inicio-->
-    <div>
-                <a href="{% url 'index' %}">Elenco Brooklyn Nets</a>
+        <!-- barrinha de navegação, com "Logo" se clicar leva pro início -->
+        <div style="background: linear-gradient(to right, #303030ff, #ffffffff); padding: 20px 40px;">
+        <nav class="d-flex justify-content-between align-items-center flex-wrap">
+            <!-- LOGO -->
+             
+            <a href="{% url 'index' %}" class="d-flex align-items-center">
+            <img src="{% static 'MeuSite/img/Logo.png' %}" alt="Logo" style="height: 50px; transform: scale(1.8)">
+            </a>
+            
 
-    </div>
-    <!-- barrinha de pesquisa (nav)-->
-    <div>
-                    <ul>
-                        <li> <a href="{% url 'index' %}">Início</a></li>
-                        <li> <a href="{% url 'sobre' %}">Sobre</a></li>
-                        <li> <a href="{% url 'elenco' %}">Elenco</a></li>
-                    </ul>
-    </div>
-    <!-- header -->
-     <div> Aqui é onde ficará o header. não sei o que colocar ainda. </diV>
-    {% block conteudo%}
-    <!-- main content-->
-        <div class="conteiner">
-            <div class="row"> <h1> aaaadwadsd </h1> </div>
-    {% endblock conteudo%}
+            <!-- NAVEGAÇÃO -->
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link" style="text-decoration: none; color: black;">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'sobre' %}" class="nav-link" style="text-decoration: none; color: black;">Sobre</a>
+                </li>
+                <li class="nav-item">
+                    <a href="{% url 'elenco' %}" class="nav-link" style="text-decoration: none; color: black;">Elenco</a>
+                </li>
+            </ul>
+        </nav>
 
-    <!-- footer-->
-    <hr class="my-4" />
-    
+        <!-- Título e subtítulo -->
+        <header class="mt-4 text-center">
+            <h2>{% block titulo %} Título {% endblock titulo %}</h2>
+            <span style="font-size: 1.2rem; color: #444;">
+                {% block subtitulo %} Sub título {% endblock subtitulo %}
+            </span>
+        </header>
+    </div>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="d-flex justify-content-center align-items-center text-center" style="min-height: 60vh;">
+        {% block conteudo %}
+            <div class="container">
+                <div class="row">
+                    <h1>aaadwadad</h1>
+                </div>
+            </div>
+        {% endblock conteudo %}
+    </main>
+
+    <footer class="text-center py-3" style="background-color: #222; color: #ccc; font-size: 0.9rem;">
+        <div class="container">
+            <p class="mb-0">© 2025 Brooklyn Nets. Todos os direitos reservados.</p>
+            <small>Este site é fictício e foi criado apenas para fins educacionais, como um projeto da matéria de PSI.</small>
+        </div>
+    </footer>
+
 </body>
 
 </html>

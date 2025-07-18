@@ -1,6 +1,22 @@
 {% extends 'MeuSite/base.html' %}
 {% block TITULO %}Sobre{% endblock TITULO %}
+{% block titulo %} Sobre {% endblock %}
+{% block subtitulo %} Informações sobre o Site, o criador do Site e etc. {% endblock %}
 {% block conteudo %}
-    <h1> Sobre </h1>
-        <p> Site Fabricado no intuito de ser um método de aprendizagem no formato de um projeto, \n muito massa  </p>
+ <div class="container mt-5">
+	<div class="card shadow-sm p-4">
+		{% for info in info_sobre %}
+			<h3 class="mb-3">Sobre o Projeto</h3>
+			<p><strong>Autor:</strong> {{ info.autor }}</p>
+			<p><strong>Base:</strong> {{ info.Sbase }}</p>
+			<p><strong>Objetivo:</strong> {{ info.Obj }}</p>
+		{% endfor %}
+	</div>
+
+	<div class="mt-4">
+		<p class="text-muted fst-italic text-center">
+			Esse projeto foi desenvolvido por um estudante de 16 anos em 2025, como parte de uma disciplina prática com potencial para se expandir em um projeto profissional futuro.
+		</p>
+	</div>
+</div>
 {% endblock conteudo %}

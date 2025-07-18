@@ -1,6 +1,47 @@
 {% extends 'MeuSite/base.html' %}
+{% load static %}
 {% block TITULO %}Elenco{% endblock TITULO %}
+{% block titulo %} Elenco {% endblock %}
+{% block subtitulo %} Jogadores do time Brooklyn Nets. {% endblock %}
 {% block conteudo %}
-    <h1> Elenco </h1>
-        <p> aqui serão dispostos os jogadores do brooklyn nets </p>
+   
+
+	<div class="table-responsive">
+		<table class="table table-hover align-middle text-center">
+			<thead class="table-dark">
+				<tr>
+					<th>Foto</th>
+					<th>Nome</th>
+					<th>Nº</th>
+					<th>Posição</th>
+					<th>Altura</th>
+					<th>Peso</th>
+					<th>Nascimento</th>
+					<th>Faculdade</th>
+					<th>Nota</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for item in elenco %}
+				<tr>
+					<td>
+						<img src="{% static item.imagem %}" alt="{{ item.nome }}" width="60" height="60" class="rounded-circle">
+					</td>
+					<td class="fw-semibold">{{ item.nome }}</td>
+					<td>{{ item.num }}</td>
+					<td>{{ item.posi }}</td>
+					<td>{{ item.altura }}</td>
+					<td>{{ item.peso }}</td>
+					<td>{{ item.nasc }}</td>
+					<td>{{ item.sch }}</td>
+					<td>{{ item.MTD }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+        <p class="text-center mt-4">Total de jogadores carregados: {{ elenco|length }}</p>
+	</div>
+
+	
+</div>
 {% endblock conteudo %}

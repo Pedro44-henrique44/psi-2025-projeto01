@@ -1,6 +1,127 @@
 {% extends 'MeuSite/base.html' %}
 {% block TITULO %}Início{% endblock TITULO %}
+{% block titulo %} Início {% endblock %}
+{% block subtitulo %} Informações gerais sobre a equipe. {% endblock %}
 {% block conteudo %}
-    <h1> Pick do Draft de 2025: </h1>
-        <p>Neste bloco serão dispostas as "notícias" ou contratações.</p>
+<!-- Bloco de estatísticas -->
+<div class="container my-4">
+    {% for item in info %}
+        <div class="p-4 rounded" style="background-color: black; color: white;">
+            <h2 class="text-center mb-4">Estatísticas da Equipe</h2>
+            <div class="row text-center justify-content-center">
+
+                <!-- PPG -->
+                <div class="col-12 col-md">
+                    <div class="fw-bold">Pontos por jogo (PPG)</div>
+                    <div class="fs-2">{{ item.ppg }}</div>
+                    <div class="fst-italic">({{ item.colocacao_ppg }})</div>
+                </div>
+
+                <!-- APG -->
+                <div class="col-12 col-md">
+                    <div class="fw-bold">Assistências por jogo (APG)</div>
+                    <div class="fs-2">{{ item.apg }}</div>
+                    <div class="fst-italic">({{ item.colocacao_apg }})</div>
+                </div>
+
+                <!-- RPG -->
+                <div class="col-12 col-md">
+                    <div class="fw-bold">Rebotes por jogo (RPG)</div>
+                    <div class="fs-2">{{ item.rpg }}</div>
+                    <div class="fst-italic">({{ item.colocacao_rpg }})</div>
+                </div>
+
+                <!-- Vitórias / Derrotas -->
+                <div class="col-12 col-md">
+                    <div class="fw-bold fs-5 text-warning">Vitórias / Derrotas</div>
+                    <div class="fs-4">{{ item.vit_der }}</div>
+                </div>
+
+                <!-- Posição -->
+                <div class="col-12 col-md">
+                    <div class="fw-bold fs-5 text-warning">Posição Conferência Oeste</div>
+                    <div class="fs-5">{{ item.posi }}</div>
+                </div>
+
+            </div>
+        </div>
+    {% endfor %}
+
+    <!-- Bloco dos draftados (chat, se estiver lendo isso 
+     organize as informações dos "draftados"- itens dos drafts - aqui)-->
+    <div class="container my-4">
+    <div class="row">
+    <!-- Coluna 1: Tabela de Draftados -->
+    <div class="col-md-6">
+        <div class="p-3 border rounded bg-light">
+            <h5 class="fw-bold mb-3">Escolhas do Draft de 2025 pelo Brooklyn Nets:</h5>
+
+            <div class="table-responsive">
+            <table class="table table-bordered text-center align-middle">
+                <thead class="table-dark">
+                <tr>
+                    <th>Pick</th>
+                    <th>Nome</th>
+                    <th>Posição</th>
+                    <th>Universidade/Clube</th>
+                    <th>Nacionalidade</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in draft %}
+                <tr>
+                    <td>{{ item.pick }}</td>
+                    <td>{{ item.nome }}</td>
+                    <td>{{ item.pos }}</td>
+                    <td>{{ item.Sch }}</td>
+                    <td>{{ item.Nacio }}</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Coluna 2: Hall da Fama -->
+    <div class="col-md-6">
+        <div class="p-3 border rounded bg-light">
+            <h5 class="fw-bold mb-3">Jogadores que estão no Hall Of Fame (Hall da fama) da NBA</h5>
+
+            <div class="table-responsive">
+                <table class="table table-bordered text-center align-middle">
+                    <thead class="table-dark">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Posição</th>
+                        <th>Temporada</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for item in lendas %}
+                    <tr>
+                        <td>{{ item.nome }}</td>
+                        <td>{{ item.posi }}</td>
+                        <td>{{ item.temp }}</td>
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+    </div>
+</div>
+
+    <!-- Bloco das lendas (chat, se estiver lendo isso 
+     organize as informações das lendas aqui) -->
+</div>
+
+</div>
+
+
+
 {% endblock conteudo %}
